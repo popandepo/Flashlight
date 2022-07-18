@@ -14,7 +14,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="745d2ec8-3ee7-4819-9078-5849437220fe" name="Changes" comment="made stuff&#10;TODO make foreground service" />
+    <list default="true" id="745d2ec8-3ee7-4819-9078-5849437220fe" name="Changes" comment="xml">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Flashlight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Flashlight/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658141191481</updated>
-      <workItem from="1658141212927" duration="5005000" />
+      <workItem from="1658141212927" duration="5333000" />
     </task>
     <task id="LOCAL-00001" summary="Created Blazor blueprint">
       <created>1658142351075</created>
@@ -126,7 +129,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658147678293</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added gitignore">
+      <created>1658147946574</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1658147946574</updated>
+    </task>
+    <task id="LOCAL-00008" summary="xml">
+      <created>1658147965242</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1658147965242</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +169,8 @@
     <MESSAGE value="Imported flashlight functionality" />
     <MESSAGE value="Removed Counter code" />
     <MESSAGE value="made stuff&#10;TODO make foreground service" />
-    <option name="LAST_COMMIT_MESSAGE" value="made stuff&#10;TODO make foreground service" />
+    <MESSAGE value="added gitignore" />
+    <MESSAGE value="xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml" />
   </component>
 </project>
