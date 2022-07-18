@@ -5,14 +5,12 @@
 <button class="btn btn-secondary" @onclick="ToggleFlashlight">Flash</button>
 
 @code {
-	static int? _currentCount;
 	public static bool PowerButtonPressed;
 	private bool _flashlightIsOn;
 	
 
 	protected override void OnInitialized()
 	{
-		_currentCount ??= 0;
 		Accelerometer.Start(SensorSpeed.Game);
 		Accelerometer.ShakeDetected += ShakeDetected;
 	}
