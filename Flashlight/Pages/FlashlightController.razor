@@ -2,11 +2,12 @@
 
 <h1>Flashlight</h1>
 
+on: @_flashlightIsOn
 <button class="btn btn-secondary" @onclick="ToggleFlashlight">Flash</button>
 
 @code {
-	public static bool PowerButtonPressed;
-	private bool _flashlightIsOn;
+	private static bool _volDnButtonPressed;
+	private static bool _flashlightIsOn;
 	
 
 	protected override void OnInitialized()
@@ -15,27 +16,49 @@
 		Accelerometer.ShakeDetected += ShakeDetected;
 	}
 
-	private void ShakeDetected(object sender, EventArgs e)
+	private async void ShakeDetected(object sender, EventArgs e)
 	{
-		ToggleFlashlight();
+		await ToggleFlashlight();
+	}
+	
+	public static async void VolDnButtonPressed()
+	{
+		await TurnOnFlashlight();
+		_volDnButtonPressed = true;
+	}
+	
+	public static void VolDnButtonReleased()
+	{
+		_volDnButtonPressed = false;
 	}
 
-	private async void ToggleFlashlight()
+	private static async Task ToggleFlashlight()
 	{
 		switch (_flashlightIsOn)
 		{
-			case false when PowerButtonPressed:
-				await Microsoft.Maui.Devices.Flashlight.TurnOnAsync();
-				Vibration.Vibrate();
-				_flashlightIsOn = true;
+			case false when _volDnButtonPressed:
+				await TurnOnFlashlight();
 				break;
 				
 			case true:
-				await Microsoft.Maui.Devices.Flashlight.TurnOffAsync();
-				Vibration.Vibrate();
-				_flashlightIsOn = false;
+				await TurnOffFlashlight();
 				break;
 		}
+	}
+
+	private static async Task TurnOnFlashlight()
+	{
+		await Microsoft.Maui.Devices.Flashlight.TurnOnAsync();
+		_flashlightIsOn = true;
+		Vibration.Vibrate();
+		Vibration.Vibrate();
+	}
+
+	private static async Task TurnOffFlashlight()
+	{
+		await Microsoft.Maui.Devices.Flashlight.TurnOffAsync();
+		_flashlightIsOn = false;
+		Vibration.Vibrate();
 	}
 
 }

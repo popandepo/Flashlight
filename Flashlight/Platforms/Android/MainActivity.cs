@@ -15,16 +15,16 @@ public class MainActivity : MauiAppCompatActivity
 	[Register("onKeyDown", "(ILandroid/view/KeyEvent;)Z", "GetOnKeyDown_ILandroid_view_KeyEvent_Handler")]
 	public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
 	{
-		if (keyCode != Keycode.Power) return false;
-		FlashlightController.PowerButtonPressed = true;
+		if (keyCode != Keycode.VolumeDown) return false;
+		FlashlightController.VolDnButtonPressed();
 		return base.OnKeyDown(keyCode, e);
 	}
 	
 	[Register("onKeyUp", "(ILandroid/view/KeyEvent;)Z", "GetOnKeyUp_ILandroid_view_KeyEvent_Handler")]
 	public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
 	{
-		if (keyCode != Keycode.Power) return false;
-		FlashlightController.PowerButtonPressed = false;
+		if (keyCode != Keycode.VolumeDown) return false;
+		FlashlightController.VolDnButtonReleased();
 		return base.OnKeyUp(keyCode, e);
 	}
 }
