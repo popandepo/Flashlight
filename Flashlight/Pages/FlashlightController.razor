@@ -1,0 +1,43 @@
+﻿@page "/"
+
+<h1>Flashlight</h1>
+
+<button class="btn btn-secondary" @onclick="ToggleFlashlight">Flash</button>
+
+@code {
+	static int? _currentCount;
+	public static bool PowerButtonPressed;
+	private bool _flashlightIsOn;
+	
+
+	protected override void OnInitialized()
+	{
+		_currentCount ??= 0;
+		Accelerometer.Start(SensorSpeed.Game);
+		Accelerometer.ShakeDetected += ShakeDetected;
+	}
+
+	private void ShakeDetected(object sender, EventArgs e)
+	{
+		ToggleFlashlight();
+	}
+
+	private async void ToggleFlashlight()
+	{
+		switch (_flashlightIsOn)
+		{
+			case false when PowerButtonPressed:
+				await Microsoft.Maui.Devices.Flashlight.TurnOnAsync();
+				Vibration.Vibrate();
+				_flashlightIsOn = true;
+				break;
+				
+			case true:
+				await Microsoft.Maui.Devices.Flashlight.TurnOffAsync();
+				Vibration.Vibrate();
+				_flashlightIsOn = false;
+				break;
+		}
+	}
+
+}
